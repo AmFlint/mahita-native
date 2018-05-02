@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, FlatList } from 'react-native';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { fetchCourses } from '../actions';
@@ -7,27 +7,28 @@ import { fetchCourses } from '../actions';
 
 class CourseList extends Component {
     componentWillMount() {
-        console.log(this.props.courses);
         this.props.fetchCourses();
     }
 
     getVisibleCourses() {
         const { classe, category } = this.props.filters;
+        console.log(classe, category);
         // If not filter is set, return all courses
-        if (typeof classe !== 'number' && typeof category !== 'number') {
+        if (!classe.length && !category.length) {
             return this.props.courses;
         }
 
-        // Return filtered
+        // Return filtered courses according to chosen classes and categories
         return this.props.courses.filter(course => {
             let visible = true;
-            if (typeof classe == 'number') {
-                visible = visible && course.classes.includes(classe);
-            }
 
-            if (typeof category == 'number') {
-                visible = visible && course.categories === category;
-            }
+            // One or more category chosen
+            visible = visible && category.includes(course.category);
+
+            // One or more classes chosen
+            visible = visible && classe.reduce( (acc, clas) => {
+                return course.classe.includes(clas) || acc;
+            }, false);
 
             return visible;
         });
@@ -36,9 +37,11 @@ class CourseList extends Component {
     render() {
         return (
             <View>
-                <Text>
-                    Yo
-                </Text>
+                <FlatList
+                    data={this.getVisibleCourses()}
+                    renderItem={({item}) => <Text>{item.name}</Text>}
+                    keyExtractor={(item) => `${item.id}`}
+                />
             </View>
         );
     }
