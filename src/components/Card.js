@@ -1,6 +1,10 @@
 import React from "react";
 import styled from "styled-components";
+<<<<<<< HEAD
 import { Text } from "react-native";
+=======
+import { Image, Text, View } from "react-native";
+>>>>>>> Create styled Card component
 
 const CardContainer = styled.View`
   border: 1px solid black;
