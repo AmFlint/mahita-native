@@ -2,7 +2,7 @@
 
 .idea
 .idea/*
-
+package-lock.json
 # expo
 .expo/
 

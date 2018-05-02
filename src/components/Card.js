@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { connect } from 'react-redux';
-import { Text } from "react-native";
+import { Image, Text, View } from "react-native";
 
 const CardContainer = styled.View`
   border: 1px solid black;
