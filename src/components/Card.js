@@ -1,6 +1,10 @@
 import React from "react";
 import styled from "styled-components";
+<<<<<<< HEAD
 import { Text } from "react-native";
+=======
+import { Image, Text, View } from "react-native";
+>>>>>>> Create styled Card component
 
 const CardContainer = styled.View`
   border: 1px solid black;
@@ -55,22 +59,37 @@ const CardDate = styled.View`
   align-items: flex-end;
 `;
 
+<<<<<<< HEAD
 function Card(props) {
   //TODO: Change props.course.classes[0]
   //TODO: Change props.course.classes[0]
     return (
+=======
+function Card({}) {
+  return (
+>>>>>>> Create styled Card component
     <CardContainer>
       <CardImage
         source={{ uri: "https://i.chzbgr.com/full/7345954048/h7E2C65F9/" }}
       />
       <CardContent>
         <CardTagsContainer>
+<<<<<<< HEAD
           <CardTag style={{ marginRight: 10 }}>{ props.course.classes[0] }</CardTag>
           <CardTag>{ props.course.category } </CardTag>
         </CardTagsContainer>
         <CardTitle>{ props.course.name }</CardTitle>
         <CardDescription>
             {props.course.description}
+=======
+          <CardTag style={{ marginRight: 10 }}>CM2</CardTag>
+          <CardTag>Math</CardTag>
+        </CardTagsContainer>
+        <CardTitle>Les multiplications</CardTitle>
+        <CardDescription>
+          jdnjivejicrije hfre huhreu fhuerhuht vjevnije fjeor fjre v ejrv
+          rejvjien verj vrfe...
+>>>>>>> Create styled Card component
         </CardDescription>
         <CardDate>
           <Text style={{ fontStyle: "italic", color: "#CECECE" }}>
