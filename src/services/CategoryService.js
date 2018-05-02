@@ -7,16 +7,15 @@ export default class CategoryService {
     getCategories = async () => {
         let categories = [];
         try {
-            const storageClasses = AsyncStorage.getItem(storageKey);
+            const storageClasses = await AsyncStorage.getItem(storageKey);
             categories = JSON.parse(storageClasses);
         } catch (e) {
-            console.log(e);
             categories = [];
         }
         return categories;
     };
 
     preloadCategories = async () => {
-        AsyncStorage.setItem(storageKey, JSON.stringify(categories));
+        await AsyncStorage.setItem(storageKey, JSON.stringify(categories));
     };
 }

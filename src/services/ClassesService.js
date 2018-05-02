@@ -7,16 +7,15 @@ export default class ClassesService {
     getClasses = async () => {
         let classes = [];
         try {
-            const storageClasses = AsyncStorage.getItem(storageKey);
+            const storageClasses = await AsyncStorage.getItem(storageKey);
             classes = JSON.parse(storageClasses);
         } catch (e) {
-            console.log(e);
             classes = [];
         }
         return classes;
     };
 
     preloadClasses = async () => {
-        AsyncStorage.setItem(storageKey, JSON.stringify(classes));
+        await AsyncStorage.setItem(storageKey, JSON.stringify(classes));
     };
 }
