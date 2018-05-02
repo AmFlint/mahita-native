@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { connect } from 'react-redux';
 import { Text } from "react-native";
 
 const CardContainer = styled.View`
@@ -9,7 +10,6 @@ const CardContainer = styled.View`
 
   overflow: hidden;
 
-  width: 300px;
   height: auto;
 `;
 
@@ -59,14 +59,14 @@ function Card(props) {
   //TODO: Change props.course.classes[0]
   //TODO: Change props.course.classes[0]
     return (
-    <CardContainer>
+    <CardContainer style={{width: props.itemWidth}}>
       <CardImage
         source={{ uri: "https://i.chzbgr.com/full/7345954048/h7E2C65F9/" }}
       />
       <CardContent>
         <CardTagsContainer>
           <CardTag style={{ marginRight: 10 }}>{ props.course.classes[0] }</CardTag>
-          <CardTag>{ props.course.category } </CardTag>
+          <CardTag>{ props.course.categorie }</CardTag>
         </CardTagsContainer>
         <CardTitle>{ props.course.name }</CardTitle>
         <CardDescription>
