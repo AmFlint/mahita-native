@@ -1,38 +1,35 @@
 export const categories = [
-  'Maths',
-  'Français',
-  'Géographie',
-  'Histoire'
+    {id: 1, name: 'Maths'},
+    {id: 2, name: 'Français'},
+    {id: 3, name: 'Géographie'},
+    {id: 4, name: 'Histoire'}
 ];
 
 export const classes = [
-  'CP',
-  'CE1',
-  'CE2',
-  'CM1',
-  'CM2'
+    {id: 1, name: 'CP'},
+    {id: 2, name: 'CE1'},
+    {id: 3, name: 'CE2'},
+    {id: 4, name: 'CM1'},
+    {id: 5, name: 'CM2'}
 ];
 
 export const courses = [
     {
+        id: 1,
         name: "les multiplications",
-        categories: 1,
+        categorie: 1,
         classes: [1, 2]
     },
     {
+        id: 2,
         name: "conjugaison",
-        categories: 2,
+        categorie: 2,
         classes: [3]
     },
     {
+        id: 3,
         name: "Histoire de l'Afrique",
-        categories: 3,
+        categorie: 3,
         classes: [4]
     }
 ];
-
-export default database = {
-    courses,
-    classes,
-    categories
-};
