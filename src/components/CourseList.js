@@ -29,7 +29,6 @@ class CourseList extends Component {
 
     getVisibleCourses() {
         const { classe, category } = this.props.filters;
-        // console.log(classe, category);
         // If not filter is set, return all courses
         if (!classe.length && !category.length) {
             return this.props.courses;
