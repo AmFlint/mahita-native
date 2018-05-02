@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { Image, Text, View } from "react-native";
+import { Text } from "react-native";
 
 const CardContainer = styled.View`
   border: 1px solid black;
@@ -55,21 +55,22 @@ const CardDate = styled.View`
   align-items: flex-end;
 `;
 
-function Card({}) {
-  return (
+function Card(props) {
+  //TODO: Change props.course.classes[0]
+  //TODO: Change props.course.classes[0]
+    return (
     <CardContainer>
       <CardImage
         source={{ uri: "https://i.chzbgr.com/full/7345954048/h7E2C65F9/" }}
       />
       <CardContent>
         <CardTagsContainer>
-          <CardTag style={{ marginRight: 10 }}>CM2</CardTag>
-          <CardTag>Math</CardTag>
+          <CardTag style={{ marginRight: 10 }}>{ props.course.classes[0] }</CardTag>
+          <CardTag>{ props.course.category } </CardTag>
         </CardTagsContainer>
-        <CardTitle>Les multiplications</CardTitle>
+        <CardTitle>{ props.course.name }</CardTitle>
         <CardDescription>
-          jdnjivejicrije hfre huhreu fhuerhuht vjevnije fjeor fjre v ejrv
-          rejvjien verj vrfe...
+            {props.course.description}
         </CardDescription>
         <CardDate>
           <Text style={{ fontStyle: "italic", color: "#CECECE" }}>

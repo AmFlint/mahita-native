@@ -7,6 +7,7 @@ import { fetchCourses } from '../actions';
 
 class CourseList extends Component {
     componentWillMount() {
+        console.log('hello');
         this.props.fetchCourses();
     }
 
@@ -37,6 +38,7 @@ class CourseList extends Component {
     render() {
         return (
             <View>
+                <Text>Yo</Text>
                 <FlatList
                     data={this.getVisibleCourses()}
                     renderItem={({item}) => <Text>{item.name}</Text>}
