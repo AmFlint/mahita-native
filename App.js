@@ -3,11 +3,12 @@ import { StyleSheet, Text, View } from 'react-native';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import Thunk from 'redux-thunk';
+import rootReducer from './src/reducers';
 
 const initialState = {};
 
 const store = createStore(
-    () => {},
+    rootReducer,
     initialState,
     applyMiddleware(Thunk)
 );
