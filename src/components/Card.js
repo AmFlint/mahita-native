@@ -1,10 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-<<<<<<< HEAD
-import { Text } from "react-native";
-=======
+import { connect } from 'react-redux';
 import { Image, Text, View } from "react-native";
->>>>>>> Create styled Card component
 
 const CardContainer = styled.View`
   border: 1px solid black;
@@ -13,7 +10,6 @@ const CardContainer = styled.View`
 
   overflow: hidden;
 
-  width: 300px;
   height: auto;
 `;
 
@@ -60,17 +56,19 @@ const CardDate = styled.View`
 `;
 
 function Card(props) {
+    const getCategoryFromId = (id) => props.categories.find(category => category.id === id);
+    const getClassFromId = (id) => props.classes.find(classe => classe.id === id);
   //TODO: Change props.course.classes[0]
   //TODO: Change props.course.classes[0]
     return (
-    <CardContainer>
+    <CardContainer style={{width: props.itemWidth}}>
       <CardImage
         source={{ uri: "https://i.chzbgr.com/full/7345954048/h7E2C65F9/" }}
       />
       <CardContent>
         <CardTagsContainer>
-          <CardTag style={{ marginRight: 10 }}>{ props.course.classes[0] }</CardTag>
-          <CardTag>{ props.course.category } </CardTag>
+          <CardTag style={{ marginRight: 10 }}>{ getClassFromId(props.course.classes[0]).name }</CardTag>
+          <CardTag>{ getCategoryFromId(props.course.categorie).name }</CardTag>
         </CardTagsContainer>
         <CardTitle>{ props.course.name }</CardTitle>
         <CardDescription>
@@ -86,4 +84,11 @@ function Card(props) {
   );
 }
 
-export default Card;
+const mapStateToProps = ({ categories, classes}) => {
+  return {
+      classes,
+      categories
+  };
+};
+
+export default connect(mapStateToProps)(Card);
