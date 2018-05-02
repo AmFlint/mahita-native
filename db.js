@@ -17,19 +17,36 @@ export const courses = [
     {
         id: 1,
         name: "les multiplications",
+        description: 'Cours de mathématiques de CE1 sur les multiplications.',
         categorie: 1,
         classes: [1, 2]
     },
     {
         id: 2,
         name: "conjugaison",
+        description: 'Cours de Français de CM1 sur les conjugaisons.',
         categorie: 2,
         classes: [3]
     },
     {
         id: 3,
         name: "Histoire de l'Afrique",
+        description: 'Cours d\'Histoire de CM2 sur l\'Afrique.',
         categorie: 3,
         classes: [4]
+    },
+    {
+        id: 4,
+        name: "les divisions",
+        description: 'Cours de mathématiques de CE1 sur les divisions.',
+        categorie: 1,
+        classes: [1]
+    },
+    {
+        id: 5,
+        name: "les divisions",
+        description: 'Cours de mathématiques de CE1 sur les divisions.',
+        categorie: 1,
+        classes: [1]
     }
 ];
