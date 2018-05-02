@@ -1,21 +1,26 @@
-import { CHANGE_FILTER_CLASS, RESET_FILTER } from '../actions';
+import {CHANGE_FILTER_CATEGORY, CHANGE_FILTER_CLASSE, RESET_FILTERS} from '../actions';
 
-const initialState = 'SHOW_ALL';
+const initialFilterState = {
+  classe: [],
+  category: []
+};
 
-export const classFilter = (state = initialState, action) => {
+// Filter Reducer, change the filter for course based on Classe (CP/CE1...) and Category(Maths,Français...)
+export default (state = initialFilterState, action) => {
     switch (action.type) {
-        case CHANGE_FILTER_CLASS:
-            return action.payload;
-        case RESET_FILTER:
-            return initialState;
+        case CHANGE_FILTER_CLASSE:
+            return {
+                ...state,
+                classe: action.payload
+            };
+        case CHANGE_FILTER_CATEGORY:
+            return {
+                ...state,
+                category: action.payload
+            };
+        case RESET_FILTERS:
+            return initialFilterState;
         default:
             return state;
     }
-};
-
-export const categoryFilter = (state = initialState, action) => {
-    switch (action.type) {
-        default:
-            return state;
-    }
-};
+}

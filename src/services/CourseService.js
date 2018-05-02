@@ -18,8 +18,6 @@ export default class CourseService {
 
     preloadCourses = async () => {
         let storageCourses = await AsyncStorage.getItem(storageKey);
-        if (!storageCourses) {
-            await AsyncStorage.setItem(storageKey, JSON.stringify(courses));
-        }
+        await AsyncStorage.setItem(storageKey, JSON.stringify(courses));
     };
 };
