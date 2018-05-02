@@ -4,6 +4,8 @@ import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import Thunk from 'redux-thunk';
 import rootReducer from './src/reducers';
+import CourseList from './src/components/CourseList';
+import CourseService from './src/services/CourseService';
 
 const initialState = {};
 
@@ -14,13 +16,16 @@ const store = createStore(
 );
 
 export default class App extends React.Component {
+  componentWillMount() {
+      const svc = new CourseService();
+      svc.preloadCourses();
+  }
+
   render() {
     return (
         <Provider store={store}>
           <View style={styles.container}>
-            <Text>Open up App.js to start working on your app!</Text>
-            <Text>Changes you make will automatically reload.</Text>
-            <Text>Shake your phone to open the developer menu.</Text>
+            <CourseList />
           </View>
         </Provider>
     );
