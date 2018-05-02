@@ -7,6 +7,7 @@ import rootReducer from "./src/reducers";
 import CourseService from "./src/services/CourseService";
 import ClassesService from "./src/services/ClassesService";
 import CategoryService from "./src/services/CategoryService";
+import { TopBar } from "./src/components/Layout";
 
 import AppWithNavigationState from "./src/components/AppNavigator";
 
@@ -32,12 +33,3 @@ export default class App extends React.Component {
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#DEDEDE",
-    alignItems: "center",
-    justifyContent: "center"
-  }
-});
