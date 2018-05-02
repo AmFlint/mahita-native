@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { StyleSheet, View, SafeAreaView } from 'react-native';
 import { Provider } from 'react-redux';
@@ -11,14 +12,11 @@ import CategoryService from "./src/services/CategoryService";
 
 const initialState = {};
 
-const store = createStore(
-    rootReducer,
-    initialState,
-    applyMiddleware(Thunk)
-);
+const store = createStore(rootReducer, initialState, applyMiddleware(Thunk));
 
 export default class App extends React.Component {
   componentWillMount() {
+
       const svc = new CourseService();
       const classSvc = new ClassesService();
       const categorySvc = new CategoryService();
@@ -29,6 +27,7 @@ export default class App extends React.Component {
 
   render() {
     return (
+
         <Provider store={store}>
           <SafeAreaView style={styles.container}>
             <CourseList />
@@ -41,8 +40,8 @@ export default class App extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
+    backgroundColor: "#DEDEDE",
+    alignItems: "center",
+    justifyContent: "center"
+  }
 });
