@@ -4,16 +4,21 @@ import { connect } from 'react-redux';
 import CourseItem from './CourseItem';
 
 
-const AgendaList = (props) => {
+const AgendaList = ({ courses, calendar, currentDate, classes, categories }) => {
+    const getCourseFromAgenda = () => {
+        const agendaEntries = calendar.agenda[currentDate] ? calendar.agenda[currentDate] : [];
+        return courses.filter(c => agendaEntries.includes(c.id));
+    };
+
     return (
         <ScrollView>
             <FlatList
-                data={props.courses}
+                data={getCourseFromAgenda()}
                 keyExtractor={(item) => `${item.id}`}
                 renderItem={({item}) => (
                     <CourseItem
-                        classe={"CP"}
-                        category={"Maths"}
+                        classe={classes.find(c => c.id === item.classes[0]).name}
+                        category={categories.find(c => c.id === item.categorie).name}
                         course={item} />
                 )}
             />
@@ -25,11 +30,12 @@ const styles = StyleSheet.create({
 
 });
 
-const mapStateToProps = ({ courses, classes, categories }) => {
+const mapStateToProps = ({ courses, classes, categories, calendar }) => {
     return {
         courses,
         classes,
-        categories
+        categories,
+        calendar
     };
 };
 

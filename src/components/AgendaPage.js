@@ -1,4 +1,11 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import {
+    fetchClasses,
+    fetchCategories,
+    fetchCourses
+} from '../actions';
 import { Dimensions, View, Text, StyleSheet, ScrollView, KeyboardAvoidingView } from 'react-native';
 import Agenda from './Agenda';
 import CalendarForm from './CalendarForm';
@@ -20,7 +27,7 @@ const months = [
 ];
 
 function formatDate(date) {
-    var d = new Date(date),
+    let d = new Date(date),
         month = '' + (d.getMonth() + 1),
         day = '' + d.getDate(),
         year = d.getFullYear();
@@ -52,18 +59,18 @@ class AgendaPage extends Component {
         };
     }
 
+    componentWillMount() {
+        this.props.fetchCourses();
+        this.props.fetchCategories();
+        this.props.fetchClasses();
+    }
+
     render() {
         // TODO: Calculate calendar width based on Dimensions
-        const { currentDay, currentMonth } = this.state;
-        const month = months[currentMonth.month - 1];
+        const { currentDay } = this.state;
         const selectedMonth = months[currentDay.month -1];
         return (
             <KeyboardAvoidingView behavior="position" style={styles.container}>
-                <View>
-                    <Text style={styles.calendarHeader}>
-                        Agenda de { month } { currentMonth.year }
-                    </Text>
-                </View>
                 {/* Calendar list */}
                 <View style={{flex: 3.2}}>
                     <Agenda
@@ -73,11 +80,11 @@ class AgendaPage extends Component {
                 {/* Agenda based on click day */}
                 <View style={styles.formContainer}>
                     <Text style={styles.formTitle}>Ajouter un cours pour le { currentDay.day } { selectedMonth }</Text>
-                    <CalendarForm />
+                    <CalendarForm currentDate={currentDay.dateString} />
                 </View>
                 {/* Already assigned tasks */}
                 <View style={{flex: 2}}>
-                    <AgendaList />
+                    <AgendaList currentDate={currentDay.dateString} />
                 </View>
             </KeyboardAvoidingView>
         );
@@ -113,4 +120,11 @@ const styles = StyleSheet.create({
     }
 });
 
-export default AgendaPage;
+const mapDispatchToProps = (dispatch) => {
+    return bindActionCreators({
+        fetchCourses,
+        fetchCategories,
+        fetchClasses
+    }, dispatch);
+};
+export default connect(null, mapDispatchToProps)(AgendaPage);

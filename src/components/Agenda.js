@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { View, Text } from 'react-native';
+import { connect } from 'react-redux';
 
-import {LocaleConfig, CalendarList, Agenda} from 'react-native-calendars';
+import {LocaleConfig, CalendarList} from 'react-native-calendars';
 
 LocaleConfig.locales['fr'] = {
     monthNames: ['Janvier','Février','Mars','Avril','Mai','Juin','Juillet','Août','Septembre','Octobre','Novembre','Décembre'],
@@ -12,10 +13,12 @@ LocaleConfig.locales['fr'] = {
 
 LocaleConfig.defaultLocale = 'fr';
 
-export default ({ handleChangeMonth, handleChangeDay }) => {
+const Agenda = ({ handleChangeMonth, handleChangeDay, calendar }) => {
     return (
         <View style={{flex: 1, alignItems: 'center'}}>
             <CalendarList
+                markedDates={calendar.calendar}
+                markingType={'multi-dot'}
                 onDayPress={handleChangeDay}
                 onVisibleMonthsChange={handleChangeMonth}
                 style={{width: 600, height: 200, backgroundColor: '#000'}}
@@ -28,4 +31,10 @@ export default ({ handleChangeMonth, handleChangeDay }) => {
             />
         </View>
     );
-}
+};
+
+const mapStateToProps = ({ calendar }) => {
+    return { calendar };
+};
+
+export default connect(mapStateToProps)(Agenda);

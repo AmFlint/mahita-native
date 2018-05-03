@@ -22,6 +22,25 @@ class CalendarForm extends Component {
         Keyboard.dismiss();
     };
 
+    _onFormSubmit = () => {
+        // Do not add empty course to calendar
+        if (!Object.keys(this.state.course).length) {
+            return;
+        }
+
+        // date, calendar -> this.state.course.name, agenda -> this.state.course
+        const { id } = this.state.course;
+        this.props.addCalendarEntry(
+            this.props.currentDate,
+            id
+        );
+        // Reset state
+        this.setState({
+            query: '',
+            course: {}
+        });
+    };
+
     queryCourses = (query) => {
         query = query.toLowerCase();
         const courseIsSet = Object.keys(this.state.course).length > 0;
@@ -50,7 +69,7 @@ class CalendarForm extends Component {
                 </View>
                 <View style={{marginLeft: 200}}>
                     <Button
-                        onPress={() => console.log(this.state.course)}
+                        onPress={() => this._onFormSubmit()}
                         title="Ajouter à l'Agenda" />
                 </View>
             </View>
@@ -79,4 +98,4 @@ const mapDispatchToProps = (dispatch) => {
     }, dispatch);
 };
 
-export default connect(mapStateToProps)(CalendarForm);
+export default connect(mapStateToProps, mapDispatchToProps)(CalendarForm);
