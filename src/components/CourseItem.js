@@ -1,7 +1,7 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, Button } from 'react-native';
 
-export default ({ course, classe, category }) => {
+export default ({ course, classe, category, handleDelete }) => {
       return (
           <View style={styles.container}>
               <Text style={styles.courseName}>
@@ -10,6 +10,13 @@ export default ({ course, classe, category }) => {
               <View style={styles.categoriesContainer}>
                   <Text>{ classe }</Text>
                   <Text>{ category }</Text>
+              </View>
+              <View style={styles.deleteContainer}>
+                  <Button
+                      titleStyling={styles.deleteTitle}
+                      title="Delete"
+                      onPress={handleDelete}
+                  />
               </View>
           </View>
       );
@@ -34,5 +41,13 @@ const styles = StyleSheet.create({
     categoriesText: {
         fontSize: 16,
         fontWeight: '300'
+    },
+    deleteContainer: {
+        position: 'absolute',
+        top: 0,
+        right: 0
+    },
+    deleteTitle: {
+        color: 'red'
     }
 });

@@ -4,7 +4,8 @@ import { bindActionCreators } from 'redux';
 import {
     fetchClasses,
     fetchCategories,
-    fetchCourses
+    fetchCourses,
+    fetchCalendar
 } from '../actions';
 import { Dimensions, View, Text, StyleSheet, ScrollView, KeyboardAvoidingView } from 'react-native';
 import Agenda from './Agenda';
@@ -63,6 +64,7 @@ class AgendaPage extends Component {
         this.props.fetchCourses();
         this.props.fetchCategories();
         this.props.fetchClasses();
+        this.props.fetchCalendar();
     }
 
     render() {
@@ -94,7 +96,7 @@ class AgendaPage extends Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        width: maxWidth * .85,
+        width: maxWidth,
         justifyContent: 'center',
         alignItems: 'center'
     },
@@ -124,7 +126,8 @@ const mapDispatchToProps = (dispatch) => {
     return bindActionCreators({
         fetchCourses,
         fetchCategories,
-        fetchClasses
+        fetchClasses,
+        fetchCalendar
     }, dispatch);
 };
 

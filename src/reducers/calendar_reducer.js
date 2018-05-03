@@ -1,7 +1,8 @@
 import {
-    ADD_CALENDAR_ENTRY,
+    ADD_CALENDAR_ENTRY, GET_CALENDAR_ENTRIES,
     REMOVE_CALENDAR_ENTRY
 } from '../actions';
+import { addEntry, removeEntry } from '../helpers/calendar_helper';
 
 const initialState = {
     calendar: {},
@@ -23,55 +24,15 @@ agenda : list of course IDS
 
 export default (state = initialState, action) => {
     switch (action.type) {
-        case ADD_CALENDAR_ENTRY:
-            const { agendaEntry, calendarEntry, date } = action.payload;
-            // If entry for this course already exists, do not add it again.
-            if (state.calendar[date] && state.calendar[date].dots.find(d => d.key === calendarEntry.key)) {
-                return state;
-            }
-
-            let calendar = {};
-            if (state.calendar[date]) {
-                calendar = {
-                    ...state.calendar[date],
-                    dots: [
-                        ...state.calendar[date].dots,
-                        calendarEntry
-                    ]
-                }
-            } else {
-                calendar = {
-                    dots: [calendarEntry],
-                    selectedColor: 'blue'
-                }
-            }
-
-            let a = {};
-            if (state.agenda[date]) {
-                a = {
-                    ...state.agenda,
-                    [date]: [
-                        ...state.agenda[date],
-                        agendaEntry
-                    ]
-                };
-            } else {
-                a = {
-                    ...state.agenda,
-                    [date]: [
-                        agendaEntry
-                    ]
-                }
-            }
-            // agenda
-
+        case GET_CALENDAR_ENTRIES:
             return {
-                calendar: {
-                    ...state.calendar,
-                    [date]: calendar
-                },
-                agenda: a
+                ...action.payload
             };
+        case ADD_CALENDAR_ENTRY:
+            return addEntry(state, action.payload);
+        // ---- REMOVE ---- //
+        case REMOVE_CALENDAR_ENTRY:
+            return removeEntry(state, action.payload);
         default:
             return state;
     }
