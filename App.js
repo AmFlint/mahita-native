@@ -16,12 +16,12 @@ const store = createStore(rootReducer, initialState, applyMiddleware(Thunk));
 
 export default class App extends React.Component {
   componentWillMount() {
-    // const svc = new CourseService();
-    // const classSvc = new ClassesService();
-    // const categorySvc = new CategoryService();
-    // svc.preloadCourses();
-    // classSvc.preloadClasses();
-    // categorySvc.preloadCategories();
+    const svc = new CourseService();
+    const classSvc = new ClassesService();
+    const categorySvc = new CategoryService();
+    svc.preloadCourses();
+    classSvc.preloadClasses();
+    categorySvc.preloadCategories();
   }
 
   render() {
