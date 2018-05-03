@@ -3,10 +3,12 @@ import React from 'react';
 import { StyleSheet, View, Dimensions } from 'react-native';
 import CourseList from './CourseList';
 import CourseFilter from './CourseFilter';
+import ActionButton from 'react-native-action-button';
 
 export default class ListCoursesPage extends React.Component {
     static navigationOptions = {
-        title: 'Vos cours',
+        title: 'Documents',
+        header: null
     };
 
     render() {
@@ -14,6 +16,7 @@ export default class ListCoursesPage extends React.Component {
             <View style={styles.container}>
                 <CourseFilter />
                 <CourseList />
+                <ActionButton buttonColor="#FF780B" onPress={() => this.props.navigation.navigate('AddCoursePage')} />
             </View>
         );
     }
@@ -22,8 +25,6 @@ export default class ListCoursesPage extends React.Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: "#DEDEDE",
         alignItems: "center"
-        // justifyContent: "center"
     }
 });

@@ -8,13 +8,7 @@ export const REMOVE_CALENDAR_ENTRY = 'remove_calendar_entry';
 // Agenda
 const colors = [
     'red',
-    'blue',
-    'pink',
-    'green',
-    'orange',
-    'indianred',
-    'aqua',
-    'yellow'
+    'blue'
 ];
 
 const service = new CalendarService();

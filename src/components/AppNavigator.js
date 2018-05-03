@@ -15,6 +15,7 @@ import { connect } from "react-redux";
 import ListCoursesPage from "./ListCoursesPage";
 import AgendaPage from "./AgendaPage";
 import { StatusBar } from "react-native";
+import AddCoursePage from './AddCoursePage';
 
 const middleware = createReactNavigationReduxMiddleware(
   "root",
@@ -36,23 +37,15 @@ const StackedAgendaPage = StackNavigator(
   }
 );
 
-const StackedListeCoursesPage = StackNavigator(
-  {
-    ListCoursesPage: { screen: ListCoursesPage }
-  },
-  {
-    navigationOptions: {
-      headerStyle: {
-        backgroundColor: "lightblue"
-      }
-    }
-  }
-);
+const StackedListeCoursesPage = StackNavigator({
+    ListCoursesPage: { screen: ListCoursesPage },
+    AddCoursePage: { screen: AddCoursePage }
+});
 
 export const AppNavigator = TabNavigator(
   {
     Main: { screen: AgendaPage },
-    Agenda: { screen:  StackedListeCoursesPage}
+    ListCourses: { screen:  StackedListeCoursesPage }
   },
   {
     tabBarOptions: {

@@ -1,5 +1,5 @@
 export const categories = [
-    {id: 1, name: 'Maths'},
+    {id: 1, name: 'Maths', image: 'maths.jpg'},
     {id: 2, name: 'Français'},
     {id: 3, name: 'Géographie'},
     {id: 4, name: 'Histoire'}
