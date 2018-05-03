@@ -61,7 +61,7 @@ function Card(props) {
   //TODO: Change props.course.classes[0]
   //TODO: Change props.course.classes[0]
     return (
-    <CardContainer style={{width: props.itemWidth}}>
+    <CardContainer style={[{width: props.itemWidth}, props.itemStyle]}>
       <CardImage
         source={{ uri: "https://i.chzbgr.com/full/7345954048/h7E2C65F9/" }}
       />

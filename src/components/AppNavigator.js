@@ -7,6 +7,7 @@ import {
 import { createStore, combineReducers } from 'redux';
 import { connect } from 'react-redux';
 import ListCoursesPage from './ListCoursesPage';
+import AgendaPage from './AgendaPage';
 
 const middleware = createReactNavigationReduxMiddleware(
     "root",
@@ -15,7 +16,7 @@ const middleware = createReactNavigationReduxMiddleware(
 const addListener = createReduxBoundAddListener("root");
 
 export const AppNavigator = StackNavigator({
-    Main: { screen: ListCoursesPage }
+    Main: { screen: AgendaPage }
 }, {
     initialRouteName: 'Main'
 });

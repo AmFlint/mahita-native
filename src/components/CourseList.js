@@ -69,10 +69,11 @@ class CourseList extends Component {
         return (
             <ScrollView style={styles.container}>
                 <FlatList
-                    columnWrapperStyle={styles.listWrapper}
+                    columnWrapperStyle={listData.length < 4 ? [styles.listWrapper, {justifyContent: 'flex-start'}] : [styles.listWrapper, {justifyContent: 'space-between'}]}
                     data={listData}
                     renderItem={({item}) =>
                         <CourseItem
+                            itemStyle={ listData.length < 4 ? {marginRight: 20} : {}}
                             itemWidth={itemWidth}
                             course={item}
                         />}
@@ -90,7 +91,6 @@ const styles = StyleSheet.create({
        width: maxWidth * .85
     },
     listWrapper: {
-       justifyContent: 'space-between',
         marginBottom: 20
     }
 });

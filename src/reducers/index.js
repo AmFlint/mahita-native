@@ -4,11 +4,13 @@ import coursesReducer from './courses_reducer';
 import classesReducer from './classes_reducer';
 import categoriesReducer from './categories_reducer';
 import nav from './navigation_reducer';
+import calendarReducer from './calendar_reducer';
 
 export default combineReducers({
     courses: coursesReducer,
     filters: filter,
     nav,
     categories: categoriesReducer,
-    classes: classesReducer
+    classes: classesReducer,
+    calendar: calendarReducer
 });
