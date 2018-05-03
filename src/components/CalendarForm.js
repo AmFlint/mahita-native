@@ -69,6 +69,7 @@ class CalendarForm extends Component {
                 </View>
                 <View style={{marginLeft: 200}}>
                     <Button
+                        color="#FF780B"
                         onPress={() => this._onFormSubmit()}
                         title="Ajouter à l'Agenda" />
                 </View>

@@ -43,7 +43,7 @@ const maxWidth = Dimensions.get('window').width;
 
 class AgendaPage extends Component {
     static navigationOptions = {
-        title: 'Votre Agenda de cours',
+        title: 'Agenda',
     };
 
     constructor(props) {
@@ -81,7 +81,7 @@ class AgendaPage extends Component {
                 </View>
                 {/* Agenda based on click day */}
                 <View style={styles.formContainer}>
-                    <Text style={styles.formTitle}>Ajouter un cours pour le { currentDay.day } { selectedMonth }</Text>
+                    <Text style={styles.formTitle}>Agenda du { currentDay.day } { selectedMonth }</Text>
                     <CalendarForm currentDate={currentDay.dateString} />
                 </View>
                 {/* Already assigned tasks */}
@@ -98,7 +98,8 @@ const styles = StyleSheet.create({
         flex: 1,
         width: maxWidth,
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
+        paddingTop: 10
     },
     calendarHeader: {
         textAlign: 'left'
@@ -111,11 +112,9 @@ const styles = StyleSheet.create({
         marginBottom: 20
     },
     formTitle: {
-        fontSize: 20,
-        fontWeight: '600',
-        marginBottom: 10,
-        paddingBottom: 10,
-        borderBottomWidth: 1,
+        fontSize: 18,
+        fontWeight: '500',
+        marginBottom: 20
     },
     titleContainer: {
         borderBottomWidth: 1

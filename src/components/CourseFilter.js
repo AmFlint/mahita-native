@@ -33,6 +33,7 @@ class Coursefilter extends Component {
                         key={c.name}
                         handlePress={() => removeCategoriesfilter(c.id)}
                         id={c.id}
+                        color="#7ED6A2"
                         label={c.name} />);
 
         const filteredClasses = classes
@@ -41,6 +42,7 @@ class Coursefilter extends Component {
                         key={c.name}
                         handlePress={() => removeClassFilter(c.id)}
                         id={c.id}
+                        color="#89D7F0"
                         label={c.name} />);
 
         return filteredCategories.concat(filteredClasses);
@@ -48,18 +50,7 @@ class Coursefilter extends Component {
 
     render() {
         return (
-            <View>
-                <View style={styles.searchContainer}>
-                    <TextInput
-                        placeholder={'Entrez un mot clé'}
-                        onChangeText={(text) => this.setState({search: text})}
-                        value={this.state.search}
-                    />
-                    <Button
-                        title={'Rechercher'}
-                        onPress={() => console.log('recherche')}
-                    />
-                </View>
+            <View style={{marginTop: 20}}>
                 {/*Pickers/Select for Classe and Categories*/}
                 <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
                     <CustomPicker

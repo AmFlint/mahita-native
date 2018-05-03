@@ -8,13 +8,17 @@ export default ({ course, classe, category, handleDelete }) => {
                   { course.name }
               </Text>
               <View style={styles.categoriesContainer}>
-                  <Text>{ classe }</Text>
-                  <Text>{ category }</Text>
+                <View style={[styles.tag, { marginRight: 20 }]}>
+                    <Text>{ classe }</Text>
+                </View>
+                <View style={[styles.tag, styles.categoryTag]}>
+                    <Text>{ category }</Text>
+                </View>
               </View>
               <View style={styles.deleteContainer}>
                   <Button
-                      titleStyling={styles.deleteTitle}
-                      title="Delete"
+                      color="#FF7E7E"
+                      title="Supprimer"
                       onPress={handleDelete}
                   />
               </View>
@@ -36,7 +40,8 @@ const styles = StyleSheet.create({
     },
     categoriesContainer: {
         marginTop: 10,
-        flex: 1
+        flex: 1,
+        flexDirection: 'row'
     },
     categoriesText: {
         fontSize: 16,
@@ -45,9 +50,17 @@ const styles = StyleSheet.create({
     deleteContainer: {
         position: 'absolute',
         top: 0,
-        right: 0
+        right: 50
     },
-    deleteTitle: {
-        color: 'red'
+    tag: {
+        paddingLeft: 10,
+        paddingRight: 10,
+        paddingBottom: 5,
+        paddingTop: 5,
+        borderRadius: 10,
+        backgroundColor: '#89D7F0'
+    },
+    categoryTag: {
+        backgroundColor: '#7ED6A2'
     }
 });

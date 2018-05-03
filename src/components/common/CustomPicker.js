@@ -13,7 +13,10 @@ export default class CustomPicker extends Component {
         if (id === 0) {
             return;
         }
-        // this.setState({picker: id});
+        if (this.props.changeable) {
+            this.setState({picker: id});
+        }
+    
         this.props.handleChange(id);
     };
 
@@ -27,7 +30,7 @@ export default class CustomPicker extends Component {
 
     render() {
         return (
-            <View>
+            <View style={{ marginRight: 20 }}>
                 <Picker
                     selectedValue={this.state.picker}
                     mode={'dropdown'}

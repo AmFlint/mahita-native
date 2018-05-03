@@ -5,7 +5,7 @@ export default ({ numResults }) => {
     return (
         <View style={styles.container}>
             <Text style={styles.results}>{numResults} { numResults > 1 ? 'résultats' : 'résultat' }</Text>
-            <Text style={styles.sync}>Dernière synchronization: Ven. 2 Avril</Text>
+            <Text style={styles.sync}>Dernière mise à jour: 27/04/2018</Text>
         </View>
     );
 };
