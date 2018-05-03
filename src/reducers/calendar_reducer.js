@@ -5,7 +5,7 @@ import {
 
 const initialState = {
     calendar: {},
-    agenda: []
+    agenda: {}
 };
 
 /*
@@ -25,8 +25,13 @@ export default (state = initialState, action) => {
     switch (action.type) {
         case ADD_CALENDAR_ENTRY:
             const { agendaEntry, calendarEntry, date } = action.payload;
+            // If entry for this course already exists, do not add it again.
+            if (state.calendar[date] && state.calendar[date].dots.find(d => d.key === calendarEntry.key)) {
+                return state;
+            }
+
             let calendar = {};
-            if (state.calendar.date) {
+            if (state.calendar[date]) {
                 calendar = {
                     ...state.calendar[date],
                     dots: [
@@ -41,15 +46,31 @@ export default (state = initialState, action) => {
                 }
             }
 
+            let a = {};
+            if (state.agenda[date]) {
+                a = {
+                    ...state.agenda,
+                    [date]: [
+                        ...state.agenda[date],
+                        agendaEntry
+                    ]
+                };
+            } else {
+                a = {
+                    ...state.agenda,
+                    [date]: [
+                        agendaEntry
+                    ]
+                }
+            }
+            // agenda
+
             return {
                 calendar: {
                     ...state.calendar,
-                    calendar
+                    [date]: calendar
                 },
-                agenda: [
-                    ...state.agenda,
-                    agendaEntry
-                ]
+                agenda: a
             };
         default:
             return state;
