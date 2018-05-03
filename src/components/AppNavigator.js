@@ -58,7 +58,7 @@ export const AppNavigator = TabNavigator(
     tabBarOptions: {
       style: {
         marginTop: StatusBar.currentHeight,
-        backgroundColor: "lightblue"
+        backgroundColor: "#8BBFFC"
       }
     }
   }
