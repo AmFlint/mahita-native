@@ -1,32 +1,77 @@
-import React from 'react';
-import { addNavigationHelpers, StackNavigator } from 'react-navigation';
+import React from "react";
 import {
-    createReduxBoundAddListener,
-    createReactNavigationReduxMiddleware,
-} from 'react-navigation-redux-helpers';
-import { createStore, combineReducers } from 'redux';
-import { connect } from 'react-redux';
-import ListCoursesPage from './ListCoursesPage';
-import AgendaPage from './AgendaPage';
+  addNavigationHelpers,
+  StackNavigator,
+  TabNavigator,
+  TabBarTop,
+  TabBarBottom
+} from "react-navigation";
+import {
+  createReduxBoundAddListener,
+  createReactNavigationReduxMiddleware
+} from "react-navigation-redux-helpers";
+import { createStore, combineReducers } from "redux";
+import { connect } from "react-redux";
+import ListCoursesPage from "./ListCoursesPage";
+import AgendaPage from "./AgendaPage";
+import { StatusBar } from "react-native";
 
 const middleware = createReactNavigationReduxMiddleware(
-    "root",
-    state => state.nav,
+  "root",
+  state => state.nav
 );
 const addListener = createReduxBoundAddListener("root");
 
-export const AppNavigator = StackNavigator({
-    Main: { screen: AgendaPage }
-}, {
-    initialRouteName: 'Main'
-});
+
+const StackedAgendaPage = StackNavigator(
+  {
+    AgendaPage: { screen: AgendaPage }
+  },
+  {
+    navigationOptions: {
+      headerStyle: {
+        backgroundColor: "lightblue"
+      }
+    }
+  }
+);
+
+const StackedListeCoursesPage = StackNavigator(
+  {
+    ListCoursesPage: { screen: ListCoursesPage }
+  },
+  {
+    navigationOptions: {
+      headerStyle: {
+        backgroundColor: "lightblue"
+      }
+    }
+  }
+);
+
+export const AppNavigator = TabNavigator(
+  {
+    Main: { screen: AgendaPage },
+    Agenda: { screen:  StackedListeCoursesPage}
+  },
+  {
+    tabBarOptions: {
+      style: {
+        marginTop: StatusBar.currentHeight,
+        backgroundColor: "lightblue"
+      }
+    }
+  }
+);
 
 const AppWithNavigationState = ({ dispatch, nav }) => (
-    <AppNavigator navigation={addNavigationHelpers({ dispatch, state: nav, addListener })} />
+  <AppNavigator
+    navigation={addNavigationHelpers({ dispatch, state: nav, addListener })}
+  />
 );
 
 const mapStateToProps = state => ({
-    nav: state.nav,
+  nav: state.nav
 });
 
 export default connect(mapStateToProps)(AppWithNavigationState);

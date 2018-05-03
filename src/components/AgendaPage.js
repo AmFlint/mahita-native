@@ -127,4 +127,5 @@ const mapDispatchToProps = (dispatch) => {
         fetchClasses
     }, dispatch);
 };
+
 export default connect(null, mapDispatchToProps)(AgendaPage);
