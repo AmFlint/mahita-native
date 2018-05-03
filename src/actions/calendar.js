@@ -4,20 +4,31 @@ export const GET_CALENDAR_ENTRIES = 'get_calendar_entries';
 export const REMOVE_CALENDAR_ENTRY = 'remove_calendar_entry';
 
 // Agenda
+const colors = [
+    'red',
+    'blue',
+    'pink',
+    'green',
+    'orange',
+    'indianred',
+    'aqua',
+    'yellow'
+];
 
-// TODO: Générer la couleur au hasard
 /**
  * Add an entry into the Calendar / Agenda
  * @param date string Date format ('YYYY-MM-DD')
- * @param calendar string
- * @param agenda Object - Course format {id: int, name: string, classes: [int], categorie: int}
+ * @param courseId integer - course id for calendar Key (dot) + agenda course referencing
  * @returns {{type: string, payload: {date: string, calendarEntry: {key: string, color: string}, agendaEntry: Object}}}
  */
-export const addCalendarEntry = (date, calendar, agenda) => ({
-    type: ADD_CALENDAR_ENTRY,
-    payload: {
-        date,
-        calendarEntry: {key: calendar, color: 'blue'},
-        agendaEntry: agenda
-    }
-});
+export const addCalendarEntry = (date, courseId) => {
+    const color = colors[Math.floor(Math.random() * colors.length)];
+    return {
+        type: ADD_CALENDAR_ENTRY,
+        payload: {
+            date,
+            calendarEntry: {key: courseId, color},
+            agendaEntry: courseId
+        }
+    };
+};
