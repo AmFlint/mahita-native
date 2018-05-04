@@ -44,7 +44,7 @@ class ViewCoursePage extends Component {
                         </View>
                     </View>
                     <View>
-                        <Text>{ course.description }</Text>
+                        <Text style={{ fontSize: 15 }}>{ course.description }</Text>
                     </View>
                 </View>
             </View>
