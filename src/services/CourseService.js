@@ -39,7 +39,7 @@ export default class CourseService {
     saveCourse = async (name, content, classeId, categoryId) => {
         const course = {
             name,
-            content,
+            description: content,
             classes: [classeId],
             categorie: categoryId
         }
