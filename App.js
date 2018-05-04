@@ -19,7 +19,7 @@ export default class App extends React.Component {
     const svc = new CourseService();
     const classSvc = new ClassesService();
     const categorySvc = new CategoryService();
-    // svc.preloadCourses();
+    svc.preloadCourses();
     // classSvc.preloadClasses();
     // categorySvc.preloadCategories();
   }
@@ -36,7 +36,6 @@ export default class App extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#DEDEDE",
     alignItems: "center",
     justifyContent: "center"
   }

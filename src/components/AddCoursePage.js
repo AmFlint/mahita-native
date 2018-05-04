@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { View, Dimensions, KeyboardAvoidingView, ScrollView, Text, TextInput, StyleSheet, Button } from 'react-native';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import { addCourse } from '../actions';
 import CustomPicker from './common/CustomPicker';
 
 const maxWidth = Dimensions.get('window').width;
@@ -18,8 +19,23 @@ class AddCoursePage extends Component {
         };
     }
 
-    handleSubmit = () => {
+    _handleSubmit = () => {
         // TODO: Handle Submit
+        const {
+            title,
+            content,
+            classeId,
+            categoryId
+        } = this.state;
+        console.log(title, content, classeId, categoryId);
+        if (!title || !content || !classeId || !categoryId) {
+            console.log('Not submitted, missing value in form');
+            return;
+        }
+
+        // Dispatch action -> Add course
+        this.props.addCourse(title, content, classeId, categoryId);
+        this.props.navigation.goBack();
     };
 
     render() {
@@ -85,7 +101,7 @@ class AddCoursePage extends Component {
                             <Button 
                                 color="#FF780B"
                                 title="Créer"
-                                onPress={() => console.log('not implented yet')}
+                                onPress={() => this._handleSubmit()}
                             />
                         </View>
                     </View>
@@ -135,4 +151,10 @@ const mapStateToProps = ({ classes, categories }) => {
     return { classes, categories };
 };
 
-export default connect(mapStateToProps)(AddCoursePage);
+const mapDispatchToProps = (dispatch) => {
+    return bindActionCreators({
+        addCourse
+    }, dispatch);
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(AddCoursePage);
