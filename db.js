@@ -1,8 +1,8 @@
 export const categories = [
-    {id: 1, name: 'Maths'},
-    {id: 2, name: 'Français'},
-    {id: 3, name: 'Géographie'},
-    {id: 4, name: 'Histoire'}
+    {id: 1, name: 'Maths', image: 'http://ekladata.com/rU2Vvj9RUlx1rbUMOQg90Tcb_70.png'},
+    {id: 2, name: 'Français', image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTFi2lMNPQCxi2ORpJFjqc4JPhlZbxi9JnHhEp3s0m2vvnHhxl59Q'},
+    {id: 3, name: 'Géographie', image: 'https://images-na.ssl-images-amazon.com/images/I/515asuhfyeL._SX352_BO1,204,203,200_.jpg'},
+    {id: 4, name: 'Histoire', image: 'https://images-na.ssl-images-amazon.com/images/I/515asuhfyeL._SX352_BO1,204,203,200_.jpg'}
 ];
 
 export const classes = [

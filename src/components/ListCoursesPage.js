@@ -14,7 +14,9 @@ export default class ListCoursesPage extends React.Component {
     return (
       <View style={styles.container}>
         <CourseFilter />
-        <CourseList />
+        <CourseList
+          navigation={this.props.navigation}
+         />
         <ActionButton
           buttonColor="#FF780B"
           onPress={() => this.props.navigation.navigate("AddCoursePage")}

@@ -19,9 +19,9 @@ export default class App extends React.Component {
     const svc = new CourseService();
     const classSvc = new ClassesService();
     const categorySvc = new CategoryService();
-    svc.preloadCourses();
-    // classSvc.preloadClasses();
-    // categorySvc.preloadCategories();
+    // svc.preloadCourses();
+    classSvc.preloadClasses();
+    categorySvc.preloadCategories();
   }
 
   render() {

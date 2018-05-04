@@ -9,6 +9,11 @@ const maxWidth = Dimensions.get('window').width;
 
 class AddCoursePage extends Component {
 
+    static navigationOptions = {
+        header: null,
+        title: 'Documents'
+    };
+
     constructor(props) {
         super(props);
         this.state = {

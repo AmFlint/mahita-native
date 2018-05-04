@@ -73,6 +73,7 @@ class CourseList extends Component {
                     data={listData}
                     renderItem={({item}) =>
                         <CourseItem
+                            handlePress={() => this.props.navigation.navigate('ViewCoursePage', { course: item })}
                             itemStyle={ listData.length < 4 ? {marginRight: 20} : {}}
                             itemWidth={itemWidth}
                             course={item}
