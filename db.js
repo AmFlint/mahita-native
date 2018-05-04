@@ -1,5 +1,5 @@
 export const categories = [
-    {id: 1, name: 'Maths', image: 'maths.jpg'},
+    {id: 1, name: 'Maths'},
     {id: 2, name: 'Français'},
     {id: 3, name: 'Géographie'},
     {id: 4, name: 'Histoire'}
@@ -19,7 +19,7 @@ export const courses = [
         name: "les multiplications",
         description: 'Cours de mathématiques de CE1 sur les multiplications.',
         categorie: 1,
-        classes: [1, 2]
+        classes: [1]
     },
     {
         id: 2,
@@ -40,12 +40,12 @@ export const courses = [
         name: "les divisions",
         description: 'Cours de mathématiques de CE1 sur les divisions.',
         categorie: 1,
-        classes: [1]
+        classes: [2]
     },
     {
         id: 5,
-        name: "les divisions",
-        description: 'Cours de mathématiques de CE1 sur les divisions.',
+        name: "les additions",
+        description: 'Cours de mathématiques de CE1 sur les additions.',
         categorie: 1,
         classes: [1]
     }
