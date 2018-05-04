@@ -13,7 +13,7 @@ class NotificationsPage extends React.Component {
       <ScrollView>
         <PageContainer>
           <Notifications
-            time="16/12/1994 à 16h20"
+            time="Il y à 4h"
             content="Nouveau conseil d'apprentissage sur le document CM2 --
                     Mathématiques -- Fractions"
             active={true}
@@ -28,7 +28,7 @@ class NotificationsPage extends React.Component {
             }
           />
           <Notifications
-            time="16/12/1994 à 16h20"
+            time="Il y à 4h"
             content="Nouveau cours pour de Français pour les CE2 disponibles"
             icon={
               <Image
@@ -41,7 +41,7 @@ class NotificationsPage extends React.Component {
             }
           />
           <Notifications
-            time="16/12/1994 à 16h20"
+            time="Il y à 6h"
             content="Deux exercices ajouter par des contributeurs dans le chapitre CM1 -- Histoire -- Le temps des rois"
             active={true}
             icon={
@@ -55,7 +55,7 @@ class NotificationsPage extends React.Component {
             }
           />
           <Notifications
-            time="16/12/1994 à 16h20"
+            time="27/04/2018 à 16h20"
             content="Nouveau conseil d'apprentissage sur le document CM1 --
                     Histoire -- Découvrir le(s) lieu(x) où j'habite"
             icon={
@@ -69,7 +69,7 @@ class NotificationsPage extends React.Component {
             }
           />
           <Notifications
-            time="16/12/1994 à 16h20"
+            time="27/04/2018 à 16h20"
             content="Nouveau conseil d'apprentissage sur le document CM2 --
                     Mathématiques -- Fractions"
             active={true}
@@ -84,7 +84,7 @@ class NotificationsPage extends React.Component {
             }
           />
           <Notifications
-            time="16/12/1994 à 16h20"
+            time="27/04/2018 à 16h20"
             content="Nouveau cours pour de Français pour les CE2 disponibles"
             icon={
               <Image
@@ -97,7 +97,7 @@ class NotificationsPage extends React.Component {
             }
           />
           <Notifications
-            time="16/12/1994 à 16h20"
+            time="27/04/2018 à 16h20"
             content="Deux exercices ajouter par des contributeurs dans le chapitre CM1 -- Histoire -- Le temps des rois"
             active={true}
             icon={
@@ -111,7 +111,7 @@ class NotificationsPage extends React.Component {
             }
           />
           <Notifications
-            time="16/12/1994 à 16h20"
+            time="27/04/2018 à 16h20"
             content="Nouveau conseil d'apprentissage sur le document CM1 --
                     Histoire -- Découvrir le(s) lieu(x) où j'habite"
             icon={
