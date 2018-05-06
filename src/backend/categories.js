@@ -16,5 +16,5 @@ export const getCategories = async () => {
 };
 
 export const preloadDefaultCategories = async () => {
-    await AsyncStorage.setItem(storageKey, categories);
+    await AsyncStorage.setItem(storageKey, JSON.stringify(categories));
 }

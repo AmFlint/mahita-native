@@ -91,5 +91,5 @@ export const saveCourse = async (course) => {
 };
 
 export const preloadDefaultCourses = async () => {
-    await AsyncStorage.setItem(storageKey, courses);
+    await AsyncStorage.setItem(storageKey, JSON.stringify(courses));
 };
