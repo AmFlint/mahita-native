@@ -32,9 +32,7 @@ class AddCoursePage extends Component {
             classeId,
             categoryId
         } = this.state;
-        console.log(title, content, classeId, categoryId);
         if (!title || !content || !classeId || !categoryId) {
-            console.log('Not submitted, missing value in form');
             return;
         }
 

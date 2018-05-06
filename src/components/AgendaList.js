@@ -20,8 +20,6 @@ const AgendaList = ({ courses, calendar, currentDate, classes, categories, remov
                 renderItem={({item}) => (
                     <CourseItem
                         handleDelete={() => removeCalendarEntry(currentDate, item.id)}
-                        classe={classes.find(c => c.id === item.classes[0]).name}
-                        category={categories.find(c => c.id === item.categorie).name}
                         course={item} />
                 )}
             />

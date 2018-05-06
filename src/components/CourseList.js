@@ -60,7 +60,6 @@ class CourseList extends Component {
             >
             </View>);
         }
-
         const listData = this.getVisibleCourses();
         // Get Parent width (in pixels)
         const { width } = this.state.dimensions;
