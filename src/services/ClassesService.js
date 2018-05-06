@@ -1,21 +1,14 @@
 import { AsyncStorage } from 'react-native';
 import { classes } from '../../db';
+import { getClasses, setClasses } from '../backend';
 
-const storageKey = 'testing_classes';
 
 export default class ClassesService {
     getClasses = async () => {
-        let classes = [];
-        try {
-            const storageClasses = await AsyncStorage.getItem(storageKey);
-            classes = JSON.parse(storageClasses);
-        } catch (e) {
-            classes = [];
-        }
-        return classes;
+        return await getClasses();
     };
 
     preloadClasses = async () => {
-        await AsyncStorage.setItem(storageKey, JSON.stringify(classes));
+        await setClasses();
     };
 }
