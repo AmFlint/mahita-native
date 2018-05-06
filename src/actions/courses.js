@@ -19,7 +19,7 @@ export const addCourse = (name, content, classeId, categoryId) => {
   return async (dispatch) => {
       const payload = await service.saveCourse(name, content, classeId, categoryId);
       dispatch({
-        type: FETCH_COURSES,
+        type: ADD_COURSE,
         payload
       });
   }
