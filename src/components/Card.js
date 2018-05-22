@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import { connect } from 'react-redux';
 import { Image, Text, View , TouchableHighlight} from "react-native";
 
 const CardContainer = styled.View`
@@ -51,26 +50,20 @@ const CardDate = styled.View`
   display: flex;
 `;
 
-function Card(props) {
-    const getCategoryFromId = (id) => props.categories.find(category => category.id === id);
-    const getClassFromId = (id) => props.classes.find(classe => classe.id === id);
-    const classe = getClassFromId(props.course.classes[0]);
-    const category = getCategoryFromId(props.course.categorie);
-    const imagePath = category.image;
+export default function Card({itemWidth, course, handlePress, itemStyle}) {
+    const imagePath = course.categorie.image;
 
-  //TODO: Change props.course.classes[0]
-  //TODO: Change props.course.classes[0]
     return (
-      <TouchableHighlight onPress={props.handlePress}>
-        <CardContainer style={[{width: props.itemWidth}, props.itemStyle]}>
+      <TouchableHighlight onPress={handlePress}>
+        <CardContainer style={[{width: itemWidth}, itemStyle]}>
           <CardImage
             source={{ uri: imagePath }}
           />
           <CardContent>
-            <CardTitle>{ props.course.name.replace(/\b\w/g, l => l.toUpperCase()) }</CardTitle>
+            <CardTitle>{ course.name.replace(/\b\w/g, l => l.toUpperCase()) }</CardTitle>
             <CardTagsContainer>
-              <CardTag style={{ backgroundColor: '#89D7F0', marginRight: 10 }}>{ classe.name }</CardTag>
-              <CardTag style={{backgroundColor: '#7ED6A2'}}>{ category.name }</CardTag>
+              <CardTag style={{ backgroundColor: '#89D7F0', marginRight: 10 }}>{ course.classe.name }</CardTag>
+              <CardTag style={{backgroundColor: '#7ED6A2'}}>{ course.categorie.name }</CardTag>
             </CardTagsContainer>
             <CardDate>
               <Text style={{ fontStyle: "italic", color: "#CECECE" }}>
@@ -82,12 +75,3 @@ function Card(props) {
       </TouchableHighlight>
   );
 }
-
-const mapStateToProps = ({ categories, classes}) => {
-  return {
-      classes,
-      categories
-  };
-};
-
-export default connect(mapStateToProps)(Card);

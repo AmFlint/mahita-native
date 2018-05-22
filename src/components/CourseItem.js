@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet, Button } from 'react-native';
 
-export default ({ course, classe, category, handleDelete }) => {
+export default ({ course, handleDelete }) => {
       return (
           <View style={styles.container}>
               <Text style={styles.courseName}>
@@ -9,10 +9,10 @@ export default ({ course, classe, category, handleDelete }) => {
               </Text>
               <View style={styles.categoriesContainer}>
                 <View style={[styles.tag, { marginRight: 20 }]}>
-                    <Text>{ classe }</Text>
+                    <Text>{ course.classe.name }</Text>
                 </View>
                 <View style={[styles.tag, styles.categoryTag]}>
-                    <Text>{ category }</Text>
+                    <Text>{ course.categorie.name }</Text>
                 </View>
               </View>
               <View style={styles.deleteContainer}>
